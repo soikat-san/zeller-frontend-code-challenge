@@ -1,5 +1,6 @@
 import { useTheme } from "../../context/themeContext";
 
+// TODO - fix icons and design
 export const ThemeToggle = () => {
   const { theme, toggleTheme } = useTheme();
 

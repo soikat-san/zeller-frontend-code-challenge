@@ -1,8 +1,10 @@
+type Role = "ADMIN" | "MANAGER";
+
 export type Customer = {
   id: string;
   name: string;
   email: string;
-  role: "ADMIN" | "MANAGER";
+  role: Role;
 };
 
 export type CustomersResponse = {

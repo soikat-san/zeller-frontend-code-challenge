@@ -18,7 +18,7 @@ export const AppLayout = ({ children }: { children: React.ReactNode }) => {
             </button>
           )}
           <h1 className="text-xs sm:text-lg text-gray-900 dark:text-white">
-            Zeller Coding Assessment
+            Zeller Frontend Coding Assessment
           </h1>
         </div>
         <ThemeToggle />
@@ -27,7 +27,7 @@ export const AppLayout = ({ children }: { children: React.ReactNode }) => {
       <main className="flex-1 p-4">{children}</main>
 
       <footer className="text-center text-xs py-4 text-gray-500 dark:text-neutral-400 border-t border-gray-200 dark:border-gray-700">
-        Built by Soikat Chakrabarty • Frontend Assessment
+        Built by Soikat Chakrabarty • Senior Software Engineer
       </footer>
     </div>
   );

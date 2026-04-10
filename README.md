@@ -1,7 +1,3 @@
-This README is designed to be professional, scannable, and highly attractive to recruiters and hiring managers. I have synthesized all the information from your screenshots and polished the phrasing for maximum impact.
-
----
-
 # Zeller Frontend Coding Assessment
 
 A modern, accessible, and performant React application built to display and manage customer data using GraphQL. This project demonstrates strong frontend engineering practices including component design, state management, testing, accessibility, and UI/UX polish.

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export const Home = () => {
+const Home = () => {
   return (
     <div>
       <p className="text-3xl text-blue-500 dark:text-white">soikat's code</p>
@@ -10,3 +10,5 @@ export const Home = () => {
     </div>
   );
 };
+
+export default Home;

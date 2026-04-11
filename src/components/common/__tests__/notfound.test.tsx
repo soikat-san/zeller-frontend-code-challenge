@@ -5,7 +5,10 @@ import NotFoundView from "../notfound";
 const mockNavigate = vi.fn();
 
 vi.mock("react-router-dom", async () => {
-  const actual: any = await vi.importActual("react-router-dom");
+  const actual =
+    await vi.importActual<typeof import("react-router-dom")>(
+      "react-router-dom",
+    );
   return {
     ...actual,
     useNavigate: () => mockNavigate,
@@ -23,19 +26,16 @@ vi.mock("lucide-react", () => ({
 describe("NotFoundView", () => {
   it("renders lottie animation", () => {
     render(<NotFoundView />);
-
     expect(screen.getByTestId("lottie")).toBeInTheDocument();
   });
 
   it("renders button with correct text", () => {
     render(<NotFoundView />);
-
     expect(screen.getByText(/let's go home/i)).toBeInTheDocument();
   });
 
   it("button is accessible via aria-label", () => {
     render(<NotFoundView />);
-
     expect(
       screen.getByRole("button", {
         name: /go back to home page/i,

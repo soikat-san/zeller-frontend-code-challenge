@@ -6,7 +6,10 @@ import Home from "../home";
 const mockNavigate = vi.fn();
 
 vi.mock("react-router-dom", async () => {
-  const actual: any = await vi.importActual("react-router-dom");
+  const actual =
+    await vi.importActual<typeof import("react-router-dom")>(
+      "react-router-dom",
+    );
   return {
     ...actual,
     useNavigate: () => mockNavigate,
@@ -49,7 +52,6 @@ describe("Home page", () => {
     advance(5000);
 
     expect(screen.getByText(/please click the button/i)).toBeInTheDocument();
-
     expect(screen.getByRole("button")).toBeInTheDocument();
   });
 

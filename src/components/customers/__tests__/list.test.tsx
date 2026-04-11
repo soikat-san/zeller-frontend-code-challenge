@@ -4,7 +4,7 @@ import CustomersList from "../list";
 import type { Customer } from "../../../types/customer";
 
 vi.mock("../item", () => ({
-  default: ({ customer }: any) => <div>{customer.name}</div>,
+  default: ({ customer }: { customer: Customer }) => <div>{customer.name}</div>,
 }));
 
 vi.mock("../../common/empty", () => ({

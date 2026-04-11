@@ -1,16 +1,17 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect, vi, type Mock } from "vitest";
 import { ThemeToggle } from "../themeToggle";
+import { useTheme } from "../../../context/themeContext";
 
 vi.mock("../../../context/themeContext", () => ({
   useTheme: vi.fn(),
 }));
 
-import { useTheme } from "../../../context/themeContext";
-
 describe("ThemeToggle", () => {
+  const useThemeMock = useTheme as Mock;
+
   it("renders moon icon when theme is light", () => {
-    (useTheme as any).mockReturnValue({
+    useThemeMock.mockReturnValue({
       theme: "light",
       toggleTheme: vi.fn(),
     });
@@ -28,7 +29,7 @@ describe("ThemeToggle", () => {
   });
 
   it("renders sun icon when theme is dark", () => {
-    (useTheme as any).mockReturnValue({
+    useThemeMock.mockReturnValue({
       theme: "dark",
       toggleTheme: vi.fn(),
     });
@@ -46,7 +47,7 @@ describe("ThemeToggle", () => {
   it("calls toggleTheme on click", () => {
     const toggleThemeMock = vi.fn();
 
-    (useTheme as any).mockReturnValue({
+    useThemeMock.mockReturnValue({
       theme: "light",
       toggleTheme: toggleThemeMock,
     });
@@ -63,7 +64,7 @@ describe("ThemeToggle", () => {
   });
 
   it("has proper accessibility attributes", () => {
-    (useTheme as any).mockReturnValue({
+    useThemeMock.mockReturnValue({
       theme: "dark",
       toggleTheme: vi.fn(),
     });

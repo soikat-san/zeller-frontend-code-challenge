@@ -1,9 +1,13 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect, vi, beforeEach, type Mock } from "vitest";
 import { AppLayout } from "../appLayout";
+import { useNavigate, useLocation } from "react-router-dom";
 
 vi.mock("react-router-dom", async () => {
-  const actual = await vi.importActual<any>("react-router-dom");
+  const actual =
+    await vi.importActual<typeof import("react-router-dom")>(
+      "react-router-dom",
+    );
   return {
     ...actual,
     useNavigate: vi.fn(),
@@ -15,18 +19,19 @@ vi.mock("../../common/themeToggle", () => ({
   ThemeToggle: () => <div data-testid="theme-toggle" />,
 }));
 
-import { useNavigate, useLocation } from "react-router-dom";
-
 describe("AppLayout", () => {
   const mockNavigate = vi.fn();
 
+  const useNavigateMock = useNavigate as Mock;
+  const useLocationMock = useLocation as Mock;
+
   beforeEach(() => {
     vi.clearAllMocks();
-    (useNavigate as any).mockReturnValue(mockNavigate);
+    useNavigateMock.mockReturnValue(mockNavigate);
   });
 
   it("renders children content", () => {
-    (useLocation as any).mockReturnValue({ pathname: "/" });
+    useLocationMock.mockReturnValue({ pathname: "/" });
 
     render(
       <AppLayout>
@@ -38,7 +43,7 @@ describe("AppLayout", () => {
   });
 
   it("does NOT show back button on home route", () => {
-    (useLocation as any).mockReturnValue({ pathname: "/" });
+    useLocationMock.mockReturnValue({ pathname: "/" });
 
     render(<AppLayout>Content</AppLayout>);
 
@@ -47,7 +52,7 @@ describe("AppLayout", () => {
   });
 
   it("shows back button on non-home route", () => {
-    (useLocation as any).mockReturnValue({ pathname: "/customers" });
+    useLocationMock.mockReturnValue({ pathname: "/customers" });
 
     render(<AppLayout>Content</AppLayout>);
 
@@ -56,19 +61,18 @@ describe("AppLayout", () => {
   });
 
   it("navigates to home when back button is clicked", () => {
-    (useLocation as any).mockReturnValue({ pathname: "/customers" });
+    useLocationMock.mockReturnValue({ pathname: "/customers" });
 
     render(<AppLayout>Content</AppLayout>);
 
     const backButton = screen.getByRole("button");
-
     fireEvent.click(backButton);
 
     expect(mockNavigate).toHaveBeenCalledWith("/");
   });
 
   it("renders header title", () => {
-    (useLocation as any).mockReturnValue({ pathname: "/" });
+    useLocationMock.mockReturnValue({ pathname: "/" });
 
     render(<AppLayout>Content</AppLayout>);
 
@@ -78,7 +82,7 @@ describe("AppLayout", () => {
   });
 
   it("renders footer content", () => {
-    (useLocation as any).mockReturnValue({ pathname: "/" });
+    useLocationMock.mockReturnValue({ pathname: "/" });
 
     render(<AppLayout>Content</AppLayout>);
 
@@ -88,7 +92,7 @@ describe("AppLayout", () => {
   });
 
   it("renders theme toggle", () => {
-    (useLocation as any).mockReturnValue({ pathname: "/" });
+    useLocationMock.mockReturnValue({ pathname: "/" });
 
     render(<AppLayout>Content</AppLayout>);
 

@@ -11,7 +11,7 @@ export const AppLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="min-h-screen flex flex-col max-w-[1920px] mx-auto bg-mist-50 dark:bg-zinc-900 transition-colors">
       <header className="flex justify-between items-center sm:px-9 px-4 py-3 border-b border-gray-200 dark:border-gray-700">
-        <div className="flex">
+        <div className="flex items-center">
           {!isHome && (
             <button onClick={() => navigate("/")}>
               <MoveLeft className="mr-4 cursor-pointer dark:text-neutral-200" />

@@ -4,14 +4,14 @@ A modern, accessible, and performant React application built to display and mana
 
 ## 🚀 Live Features Overview
 
-- **Animated Splash Screen:** Custom multi-step sequence using Lottie animations.
-- **Customer Listing Page:** Dynamic data fetching with administrative filtering (Admin / Manager).
 - **GraphQL Integration:** Robust data management via Apollo Client.
+- **Navigation:** Seamless routing including a custom "Not Found" page.
 - **Dark / Light Theme:** Native toggle with persistent user preference.
 - **Accessible UI:** Fully ARIA-compliant components for screen reader support.
+- **Animated Splash Screen:** Custom multi-step sequence using Lottie animations.
 - **Testing Suite:** Comprehensive unit and integration testing with Vitest and Testing Library.
+- **Customer Listing Page:** Dynamic data fetching with administrative filtering (Admin / Manager).
 - **Resilient UI:** Integrated handling for Error states, Empty states, & Skeleton loaders for improved performance.
-- **Navigation:** Seamless routing including a custom "Not Found" page.
 
 ---
 

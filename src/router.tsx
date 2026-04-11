@@ -1,12 +1,12 @@
 import App from "./App";
 import { lazy } from "react";
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import NotFoundView from "./components/common/notfound";
 
 const Home = lazy(() => import("./pages/home"));
 const Customers = lazy(() => import("./pages/customers"));
 
-export const router = createBrowserRouter([
+const routerConfig = createBrowserRouter([
   {
     path: "/",
     element: <App />,
@@ -23,3 +23,9 @@ export const router = createBrowserRouter([
     ],
   },
 ]);
+
+const AppRouter = () => {
+  return <RouterProvider router={routerConfig} />;
+};
+
+export default AppRouter;

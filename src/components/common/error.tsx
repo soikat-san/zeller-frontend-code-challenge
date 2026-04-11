@@ -6,7 +6,9 @@ type Props = {
 
 const ErrorComponent = ({ onRetry }: Props) => {
   const handleRetry = async () => {
-    await onRetry();
+    if (onRetry) {
+      await onRetry();
+    }
   };
 
   return (

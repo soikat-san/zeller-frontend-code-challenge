@@ -4,14 +4,13 @@ import "./index.css";
 import { ApolloProvider } from "@apollo/client/react";
 import { client } from "./api/client";
 import { ThemeProvider } from "./context/themeContext.tsx";
-import { RouterProvider } from "react-router-dom";
-import { router } from "./router.tsx";
+import AppRouter from "./router.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ApolloProvider client={client}>
       <ThemeProvider>
-        <RouterProvider router={router} />
+        <AppRouter />
       </ThemeProvider>
     </ApolloProvider>
   </StrictMode>,

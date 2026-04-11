@@ -9,6 +9,8 @@ type Props = {
 };
 
 const CustomersList: FC<Props> = ({ role, customers }) => {
+  if (!customers.length) return <EmptyView />;
+
   return (
     <section aria-labelledby="customers-heading">
       <h2
@@ -18,15 +20,11 @@ const CustomersList: FC<Props> = ({ role, customers }) => {
         {`List of ${role ?? "All"} Customers`}
       </h2>
 
-      {!customers.length ? (
-        <EmptyView />
-      ) : (
-        <ul className="space-y-4">
-          {customers.map((customer) => (
-            <CustomerItem key={customer.id} customer={customer} />
-          ))}
-        </ul>
-      )}
+      <ul className="space-y-4">
+        {customers.map((customer) => (
+          <CustomerItem key={customer.id} customer={customer} />
+        ))}
+      </ul>
     </section>
   );
 };

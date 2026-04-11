@@ -10,7 +10,7 @@ A modern, accessible, and performant React application built to display and mana
 - **Dark / Light Theme:** Native toggle with persistent user preference.
 - **Accessible UI:** Fully ARIA-compliant components for screen reader support.
 - **Testing Suite:** Comprehensive unit and integration testing with Vitest and Testing Library.
-- **Resilient UI:** Integrated handling for Error states, Empty states, and Skeleton loaders for improved perceived performance.
+- **Resilient UI:** Integrated handling for Error states, Empty states, & Skeleton loaders for improved performance.
 - **Navigation:** Seamless routing including a custom "Not Found" page.
 
 ---

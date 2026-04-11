@@ -97,9 +97,10 @@ _Detailed reports can be viewed at `coverage/index.html`._
 ## 🧠 Architecture & Design Decisions
 
 1.  **Component-Based Architecture:** Focused on small, reusable components with a strict separation of concerns between UI, data fetching, and state management.
-2.  **Custom Hooks (`useCustomers`):** Encapsulates GraphQL logic, loading/error states, and data transformation to keep UI components lean.
-3.  **Lazy Loading:** Implemented for the `CustomersList` and heavy components to reduce initial bundle size and improve Load Time (LCP).
-4.  **Accessibility (A11y):** \* `role="status"` for loaders.
+2.  **Custom Hooks:** Encapsulates GraphQL logic, loading/error states, and data transformation to keep UI components lean.
+3.  **Lazy Loading:** Implemented for heavy components to reduce initial bundle size and improve Load Time (LCP).
+4.  **Accessibility (A11y):**
+    - `role="status"` for loaders.
     - `aria-live="polite"` for dynamic updates.
     - Semantic HTML and accessible button labels.
 5.  **UI States Handling:** Explicit states for **Loading** (Skeletons), **Error** (Retry UI), **Empty** (Illustrations), and **Success**.
@@ -113,7 +114,7 @@ _Detailed reports can be viewed at `coverage/index.html`._
 - **Vitest:** For fast, concurrent test execution.
 - **React Testing Library:** To ensure tests focus on user behavior rather than implementation details.
 
-### Coverage (~90%)
+### Coverage (~95%)
 
 - **Components:** Rendering, props, and styling.
 - **Hooks:** Logic and state transitions in `useCustomers`.
